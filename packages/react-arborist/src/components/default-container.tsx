@@ -223,7 +223,11 @@ export function DefaultContainer() {
         width={tree.width}
         itemSize={tree.rowHeight}
         overscanCount={tree.overscanCount}
-        itemKey={(index) => `${tree.visibleNodes[index]?.rowIndex}${tree.visibleNodes[index]?.id}` || index}
+        itemKey={(index) => {
+          console.log('visibleNode:', tree.visibleNodes[index]);
+          
+          return `${tree.visibleNodes[index]?.rowIndex}${tree.visibleNodes[index]?.id}` || index;
+        }}
         outerElementType={ListOuterElement}
         innerElementType={ListInnerElement}
         onScroll={tree.props.onScroll}
